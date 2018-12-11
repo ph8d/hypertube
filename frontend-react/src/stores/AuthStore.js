@@ -43,8 +43,11 @@ class AuthStore {
             const { ...fields } = this.fields;
             this.clearErrors();
             try {
-
-                const response = await axios.post('http://localhost:8080/api/auth/registration', fields, {withCredentials: true});
+                const response = await axios.post(
+                    `${process.env.REACT_APP_ERL_API_URL}/api/auth/registration`,
+                    fields,
+                    {withCredentials: true}
+                );
                 if (response.data.status === "ok") {
                     this.resetStore();
                     return true;
@@ -62,7 +65,11 @@ class AuthStore {
         const { uname, password } = this.fields;
         this.clearErrors();
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/login', { uname, password }, {withCredentials: true});
+            const response = await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/auth/login`,
+                { uname, password },
+                {withCredentials: true}
+            );
             if (response.data.status === 'ok') {
                 UserStore.setSelf(response.data.payload);
             } else {
@@ -79,7 +86,11 @@ class AuthStore {
             const { email } = this.fields;
             this.clearErrors();
             try {
-                const response = await axios.post('http://localhost:8080/api/auth/lostpass', { email }, {withCredentials: true});
+                const response = await axios.post(
+                    `${process.env.REACT_APP_ERL_API_URL}/api/auth/lostpass`,
+                    { email },
+                    {withCredentials: true}
+                );
                 if (response.data.status === 'ok') {
                     this.setFieldValue('email', '');
                     return true;
@@ -99,7 +110,11 @@ class AuthStore {
             const { password } = this.fields;
             this.clearErrors();
             try {
-                const response = await axios.post('http://localhost:8080/api/auth/lostpass/newpass', { password }, {withCredentials: true});
+                const response = await axios.post(
+                    `${process.env.REACT_APP_ERL_API_URL}/api/auth/lostpass/newpass`,
+                    { password },
+                    {withCredentials: true}
+                );
                 if (response.data.status === 'ok') {
                     return true;
                 } else if (response.data.status === "error"){
@@ -115,7 +130,11 @@ class AuthStore {
 
     async logout() {
         try {
-            await axios.post('http://localhost:8080/api/auth/logout', null, {withCredentials: true});
+            await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/auth/logout`,
+                null,
+                {withCredentials: true}
+            );
         } catch (e) {
             console.error(e);
         }

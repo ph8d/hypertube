@@ -90,7 +90,7 @@ class LibraryStore {
         params.page = pageToFetch;
         try {
             this.setIsLoading(true);
-            const response = await axios.get("http://localhost:3200/films", {
+            const response = await axios.get(`${process.env.REACT_APP_MOVIE_API_URL}/films`, {
                 params,
                 withCredentials: true
             });
@@ -118,7 +118,7 @@ class LibraryStore {
     async fetchSearchResults(pageToFetch = 1) {
         this.setIsLoading(true);
         try {
-            const response = await axios.get("http://localhost:3200/films", {
+            const response = await axios.get(`${process.env.REACT_APP_MOVIE_API_URL}/films`, {
                 params: { query: this.currentQuery, page: pageToFetch },
                 withCredentials: true
             });

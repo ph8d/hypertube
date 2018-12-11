@@ -57,7 +57,7 @@ const getCroppedImgBlob = (image, crop) => {
 
 const renderAvatar = (data, classes) => {
     if (data.avatar) {
-        return <Avatar className={classes ? classes.avatar : ''} src={`http://localhost:8080${data.avatar}`} />;
+        return <Avatar className={classes ? classes.avatar : ''} src={process.env.REACT_APP_ERL_API_URL + data.avatar} />;
     } else {
         return (
             <Avatar className={classes ? classes.avatar : ''} src={data.avatar} >

@@ -27,7 +27,7 @@ class MovieStore {
     }
 
     async fetchMovieDetails(movieId) {
-        const url = `http://localhost:3200/film_details/${movieId}`;
+        const url = `${process.env.REACT_APP_MOVIE_API_URL}/film_details/${movieId}`;
         try {
             const response = await axios.get(url, {
                 withCredentials: true
@@ -45,7 +45,7 @@ class MovieStore {
     }
 
     async fetchComments(movieId) {
-        const url = `http://localhost:8080/api/comments`;
+        const url = `${process.env.REACT_APP_ERL_API_URL}/api/comments`;
         try {
             const response = await axios.get(url, {
                 withCredentials: true,
@@ -62,7 +62,7 @@ class MovieStore {
     }
 
     async postComment(movieId, text) { 
-        const url = `http://localhost:8080/api/comments`;
+        const url = `${process.env.REACT_APP_ERL_API_URL}/api/comments`;
         const body = {imdb_id: movieId, text: text};
 
         try {

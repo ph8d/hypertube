@@ -52,7 +52,7 @@ class User extends Component {
 
 	renderAvatar(user, classes) {
 		if (user.avatar) {
-			return <Avatar className={classes.avatar} src={`http://localhost:8080${user.avatar}`} />;
+			return <Avatar className={classes.avatar} src={`${process.env.REACT_APP_ERL_API_URL}${user.avatar}`} />;
 		} else {
 			return (
 				<Avatar className={classes.avatar} src={user.avatar} >

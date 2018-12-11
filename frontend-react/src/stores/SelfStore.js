@@ -25,7 +25,10 @@ class SelfStore {
 
     async pullSelf() {
         try {
-            const response = await axios.get('http://localhost:8080/api/profile', { withCredentials: true });
+            const response = await axios.get(
+                `${process.env.REACT_APP_ERL_API_URL}/api/profile`,
+                { withCredentials: true }
+            );
             const { locale, ...self } = response.data.payload;
             this.setSelf(self);
             this.setLocale(locale);
@@ -39,7 +42,10 @@ class SelfStore {
 
     async importPictureFromSocial() {
         try {
-            const response = await axios.get('http://localhost:8080/api/social_avatar', { withCredentials: true });
+            const response = await axios.get(`
+                ${process.env.REACT_APP_ERL_API_URL}/api/social_avatar`,
+                { withCredentials: true }
+            );
             if (response.data.status === "ok") {
                 const avatar = response.data.payload.avatar;
                 this.updateSelfField('avatar', avatar);
@@ -57,7 +63,11 @@ class SelfStore {
         data[fieldName] = value;
         
         try {
-            const response = await axios.post('http://localhost:8080/api/profile', data, { withCredentials: true });
+            const response = await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/profile`,
+                data,
+                { withCredentials: true }
+            );
             if (response.data.status === "ok") {
                 const updatedValue = response.data.payload[fieldName];
                 this.updateSelfField(fieldName, updatedValue);
@@ -75,7 +85,11 @@ class SelfStore {
     async updateEmail(value) {
         const data = { email: value };
         try {
-            const response = await axios.post('http://localhost:8080/api/profile/email', data, { withCredentials: true });
+            const response = await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/profile/email`,
+                data,
+                { withCredentials: true }
+            );
             if (response.data.status === "ok") {
                 return { success: true };
             } else {
@@ -91,7 +105,11 @@ class SelfStore {
     async updateLocale(value) {
         const data = { locale: value };
         try {
-            const response = await axios.post('http://localhost:8080/api/profile/locale', data, { withCredentials: true });
+            const response = await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/profile/locale`,
+                data,
+                { withCredentials: true }
+            );
             if (response.data.status === "ok") {
                 this.setLocale(value);
                 LibraryStore.resetMovies()
@@ -108,7 +126,11 @@ class SelfStore {
     async updatePassword(old_password, new_password) {
         const data = { old_password, new_password };
         try {
-            const response = await axios.post('http://localhost:8080/api/profile/pass', data, { withCredentials: true });
+            const response = await axios.post(
+                `${process.env.REACT_APP_ERL_API_URL}/api/profile/pass`,
+                data,
+                { withCredentials: true }
+            );
             if (response.data.status === "ok") {
                 return { success: true };
             } else {
