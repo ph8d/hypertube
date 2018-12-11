@@ -8,7 +8,7 @@
 -define(MAX_PASS_LENGTH, 20).
 -define(MAX_BIO_LENGTH, 200).
 
--define(HTTP_PORT, 8080).
+-define(HTTP_PORT, 80).
 
 -define(FRONTEND_ORIGIN, "http://68.183.221.34:80").
 -define(DEV_FRONTEND_ORIGIN, "http://68.183.221.34:3000").
