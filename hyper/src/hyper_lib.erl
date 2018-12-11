@@ -12,8 +12,8 @@
 -define(EMAIL_SENDER, <<"hyper">>).
 -define(EMAIL_OPTS, [
     {relay, <<"smtp.gmail.com">>},
-    {username, <<"malayamanyanya@gmail.com">>},
-    {password, <<"33cats44dogs">>}
+    {username, <<"rtarasen.matcha@gmail.com">>},
+    {password, <<"AAA-ghbdtn123-AAA">>}
 ]).
 
 gv(K, T) -> gv(K, T, null).
