@@ -78,7 +78,7 @@ const userAuth = async (req, res, next) => {
 		try {
 			const response = await axios({
 				method: 'GET',
-				url: 'http://68.183.221.34:8080/api/auth/udata',
+				url: 'http://68.183.221.34/api/auth/udata',
 				headers: { 'Cookie': "x-auth-token=" + cookies['x-auth-token'] },
 				withCredentials: true
 			});
