@@ -10,7 +10,7 @@
 
 -define(HTTP_PORT, 8080).
 
--define(FRONTEND_ORIGIN, "http://68.183.221.34").
+-define(FRONTEND_ORIGIN, "http://68.183.221.34:80").
 -define(DEV_FRONTEND_ORIGIN, "http://68.183.221.34:3000").
 -define(LINK_EXPIRED_REDIRECT_PATH, <<?FRONTEND_ORIGIN, "/link_expired">>).
 
