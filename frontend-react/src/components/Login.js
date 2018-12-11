@@ -6,7 +6,6 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import intra_logo from "../img/42.png";
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
@@ -34,9 +33,6 @@ const styles = {
         color: 'black',
         textDecoration: 'none'
 	},
-	intraIco: {
-		padding: '10px'
-	}
 };
 
 @withNamespaces()
@@ -102,9 +98,6 @@ class Login extends Component {
 					</Button>
 
 					<div className="social">
-						<a title="42_Intra" className={classes.intraIco} href="http://localhost:8080/api/auth/intra/login">
-							<img src={intra_logo} height="20" alt="Intra"/>
-						</a>
 						<a title="GitHub" href="http://localhost:8080/api/auth/github/login">
 							<i className="fa fa-github"></i>
 						</a>
