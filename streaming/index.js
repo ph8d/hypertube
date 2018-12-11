@@ -290,7 +290,7 @@ app.get('/film_details/:movieId', async (req, res, next) => {
 		if (searchResults[currLang]) {
 			result.push({
 				kind: 'subtitles',
-				src: `http://localhost:3200/subtitles/${imdb_id}/${currLang}`,
+				src: `http://rtarasen.ml:3200/subtitles/${imdb_id}/${currLang}`,
 				srcLang: currLang
 			});
 		}
