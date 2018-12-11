@@ -7,7 +7,8 @@ const styles = {
 		position: 'absolute',
 		bottom: '0',
 		backgroundColor: '#f1f3f4',
-		width: '100%'
+		width: '100%',
+		padding: '8px'
 
   }
 };
@@ -18,10 +19,7 @@ class Footer extends Component {
 		return (
 			<footer className={classes.footer}>
 				<Typography variant="body2" align="center" color="textSecondary">
-					aklimchu lmalaya kbovt rtarasen
-				</Typography>
-				<Typography variant="body2" align="center" color="textSecondary">
-					© 2018
+					rtarasen © 2018
 				</Typography>
 			</footer>
 		);
