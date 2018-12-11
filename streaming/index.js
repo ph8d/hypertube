@@ -259,7 +259,7 @@ app.get('/film_details/:movieId', async (req, res, next) => {
 		const response = await axios.get(url);
 		const { torrents, trailer } = response.data;
 
-		if (torrents && torrents['en']) {
+		if (torrents && torrents['en'] && imdb_id === 'tt0099785') {
 			const streaming = Object.keys(torrents['en']).map(resolution => {
 				return `http://rtarasen.ml:3200/film/${imdb_id}/${resolution}`;
 			});

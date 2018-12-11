@@ -97,14 +97,6 @@ class Login extends Component {
 						{t('login:logIn')}
 					</Button>
 
-					<div className="social">
-						<a title="GitHub" href={`${process.env.REACT_APP_ERL_API_URL}/api/auth/github/login`}>
-							<i className="fa fa-github"></i>
-						</a>
-						<a title="Google" href={`${process.env.REACT_APP_ERL_API_URL}/api/auth/google/login`}>
-							<i  className="fa fa-google-plus-circle " aria-hidden="true"></i>
-						</a>
-					</div>
 					<Typography variant="body1" className={classes.forgotPassword}>
 						<Link to="/auth/lostpass" className={classes.forgotPasswordLink}>
 							{t('login:forgotPassword')}
