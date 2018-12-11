@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use((req, res, next) => {
 	res.set({
 		'Access-Control-Allow-Credentials': 'true',
-		'Access-Control-Allow-Origin': 'http://68.183.221.34'
+		'Access-Control-Allow-Origin': 'http://rtarasen.ml'
 	});
 	next();
 });
