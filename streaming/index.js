@@ -78,7 +78,7 @@ const userAuth = async (req, res, next) => {
 		try {
 			const response = await axios({
 				method: 'GET',
-				url: 'http://68.183.221.34/api/auth/udata',
+				url: 'http://rtarasen.ml/api/auth/udata',
 				headers: { 'Cookie': "x-auth-token=" + cookies['x-auth-token'] },
 				withCredentials: true
 			});
@@ -261,7 +261,7 @@ app.get('/film_details/:movieId', async (req, res, next) => {
 
 		if (torrents && torrents['en']) {
 			const streaming = Object.keys(torrents['en']).map(resolution => {
-				return `http://68.183.221.34:3200/film/${imdb_id}/${resolution}`;
+				return `http://rtarasen.ml:3200/film/${imdb_id}/${resolution}`;
 			});
 			req.movie.streaming = streaming;
 		}
