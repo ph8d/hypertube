@@ -48,7 +48,7 @@ setTimeout(async function runCleaner() {
 	  host: 'localhost',
 	  database: 'Hypertube',
 	  password: '12345',
-	  port: 5433,
+	  port: 5432,
 	});
 
 	await db.connect()
@@ -110,7 +110,7 @@ const getWatched = async (req, res, next) => {
 	  host: 'localhost',
 	  database: 'Hypertube',
 	  password: '12345',
-	  port: 5433,
+	  port: 5432,
 	});
 
 	await db.connect()
@@ -156,7 +156,7 @@ const setMovieAsWatched = async (imdb_id, userId) => {
 		host: 'localhost',
 		database: 'Hypertube',
 		password: '12345',
-		port: 5433,
+		port: 5432,
 	});
 
 	await db.connect()
