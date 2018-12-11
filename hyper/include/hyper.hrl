@@ -10,8 +10,7 @@
 
 -define(HTTP_PORT, 80).
 
--define(FRONTEND_ORIGIN, "http://68.183.221.34:80").
--define(DEV_FRONTEND_ORIGIN, "http://68.183.221.34:3000").
+-define(FRONTEND_ORIGIN, "http://rtarasen.ml").
 -define(LINK_EXPIRED_REDIRECT_PATH, <<?FRONTEND_ORIGIN, "/link_expired">>).
 
 -define(NOW_SEC, calendar:datetime_to_gregorian_seconds(calendar:universal_time())).
