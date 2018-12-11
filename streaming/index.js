@@ -1,9 +1,13 @@
-const express 	= require('express');
-const fs 		= require('fs');
-const axios 	= require('axios');
-const srt2vtt = require('srt-to-vtt');
-const cookieParser = require('cookie-parser')
-const rimraf = require('rimraf');
+const express 		= require('express');
+const fs 			= require('fs');
+const axios 		= require('axios');
+const srt2vtt		= require('srt-to-vtt');
+const rimraf 		= require('rimraf');
+const cookieParser	= require('cookie-parser')
+const cors = require('cors')
+
+const API_KEY = 'ec8920bdb431590b48d7b0205e7d6a49';  // API key for themoviedb.org
+const port = 3200;
 
 const OpenSubtitles = require('opensubtitles-api');
 const OS = new OpenSubtitles({
@@ -13,27 +17,14 @@ const OS = new OpenSubtitles({
 	ssl: true
 });
 
-const cors = require('cors')
-
-const API_KEY = 'ec8920bdb431590b48d7b0205e7d6a49';  // API key for themoviedb.org
-const OMDB_API_KEY = '651e2d43';
-
-const port = 3200;
-
 const app = express();
 app.use(cors());
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-	const { origin } = req.headers;
-	const allowedOrigins = ['http://localhost:3000', 'http://localhost:8080'];
-
-	if (allowedOrigins.includes(origin)) {
-		res.set('Access-Control-Allow-Origin', origin);
-	}
-
 	res.set({
 		'Access-Control-Allow-Credentials': 'true',
+		'Access-Control-Allow-Origin': 'http://68.183.221.34:8080'
 	});
 	next();
 });
@@ -87,7 +78,7 @@ const userAuth = async (req, res, next) => {
 		try {
 			const response = await axios({
 				method: 'GET',
-				url: 'http://localhost:8080/api/auth/udata',
+				url: 'http://68.183.221.34:8080/api/auth/udata',
 				headers: { 'Cookie': "x-auth-token=" + cookies['x-auth-token'] },
 				withCredentials: true
 			});
