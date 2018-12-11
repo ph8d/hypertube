@@ -261,7 +261,7 @@ app.get('/film_details/:movieId', async (req, res, next) => {
 
 		if (torrents && torrents['en']) {
 			const streaming = Object.keys(torrents['en']).map(resolution => {
-				return `http://localhost:3200/film/${imdb_id}/${resolution}`;
+				return `http://68.183.221.34:3200/film/${imdb_id}/${resolution}`;
 			});
 			req.movie.streaming = streaming;
 		}
