@@ -9,7 +9,10 @@ const styles = theme => ({
 		marginTop: theme.spacing.unit,
 		marginBottom: theme.spacing.unit,
 		padding: 0
-	},
+    },
+    wordBreak: {
+        wordBreak: 'break-word'
+    }
 });
 
 
@@ -155,24 +158,28 @@ class ProfileSection extends Component {
                     }>
                         <ListItem id="fname" button divider onClick={this.handleItemClick}>
                             <ListItemText
+                                className={classes.wordBreak}
                                 primary={self.fname || t('settingsPage:none')}
                                 secondary={t('settingsPage:fname')}
                             />
                         </ListItem>
                         <ListItem id="lname" button divider onClick={this.handleItemClick}>
                             <ListItemText
+                                className={classes.wordBreak}
                                 primary={self.lname || t('settingsPage:none')}
                                 secondary={t('settingsPage:lname')}
                             />
                         </ListItem>
                         <ListItem id="uname" button divider onClick={this.handleItemClick}>
                             <ListItemText
+                                className={classes.wordBreak}
                                 primary={self.uname}
                                 secondary={t('settingsPage:uname')}
                             />
                         </ListItem>
                         <ListItem id="bio" button onClick={this.handleItemClick}>
                             <ListItemText
+                                className={classes.wordBreak}
                                 primary={self.bio || t('settingsPage:none')}
                                 secondary={t('settingsPage:bio')}
                             />
